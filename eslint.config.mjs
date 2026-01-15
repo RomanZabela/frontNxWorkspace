@@ -10,7 +10,7 @@ export default [
       '**/vite.config.*.timestamp*',
       '**/vitest.config.*.timestamp*',
       '**/test-output',
-      '**/out-tsc'
+      '**/out-tsc',
     ],
   },
   {
@@ -23,8 +23,20 @@ export default [
           allow: ['^.*/eslint(\\.base)?\\.config\\.[cm]?[jt]s$'],
           depConstraints: [
             {
-              sourceTag: '*',
-              onlyDependOnLibsWithTags: ['*'],
+              "sourceTag": "type:api",
+              "onlyDependOnLibsWithTags": ["type:hooks"]
+            },
+            {
+              "sourceTag": "type:hooks",
+              "onlyDependOnLibsWithTags": ["type:api"]
+            },
+            {
+              "sourceTag": "type:app",
+              "onlyDependOnLibsWithTags": [
+                "type:api",
+                "type:hooks",
+                "type:i18n"
+              ]
             },
           ],
         },

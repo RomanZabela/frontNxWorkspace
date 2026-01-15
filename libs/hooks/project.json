@@ -1,0 +1,15 @@
+{
+  "name": "hooks",
+  "root": "libs/hooks",
+  "sourceRoot": "libs/hooks/src",
+  "projectType": "library",
+  "tags": ["type:hooks"],
+  "targets": {
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/hooks/**/*.ts", "libs/hooks/**/*.tsx"]
+      }
+    }
+  }
+}
